@@ -3,6 +3,7 @@ package com.riverfount.JavaLibraryManager.controller;
 import com.riverfount.JavaLibraryManager.entities.User;
 import com.riverfount.JavaLibraryManager.services.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,9 +18,9 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public ResponseEntity<Void> createUser(@RequestBody User user) {
-        userService.save(user);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<User> createUser(@RequestBody User user) {
+        User userSaved = userService.save(user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(userSaved);
     }
 
     @GetMapping
