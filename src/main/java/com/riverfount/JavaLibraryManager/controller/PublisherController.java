@@ -35,4 +35,10 @@ public class PublisherController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePublisher(@PathVariable Long id) {
+        publisherService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
