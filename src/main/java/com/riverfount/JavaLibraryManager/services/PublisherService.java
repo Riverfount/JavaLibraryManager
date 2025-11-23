@@ -5,6 +5,7 @@ import com.riverfount.JavaLibraryManager.repositories.PublisherRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,5 +27,9 @@ public class PublisherService {
 
     public void delete(Publisher publisher) {
         publisherRepository.delete(publisher);
+    }
+
+    public List<Publisher> findAll() {
+        return publisherRepository.findAll();
     }
 }
