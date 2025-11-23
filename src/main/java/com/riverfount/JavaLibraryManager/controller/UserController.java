@@ -35,6 +35,16 @@ public class UserController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PatchMapping("/{id}")
+    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User user) {
+        Optional<User> userSaved = userService.findById(id);
+        if (userSaved.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        User updatedUser = userService.updateUserById(id, user);
+        return ResponseEntity.ok(updatedUser);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUserById(@PathVariable Long id) {
         userService.delete(id);
