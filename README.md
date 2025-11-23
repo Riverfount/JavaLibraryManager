@@ -13,7 +13,7 @@ Minimal Spring Boot application providing a starting point for a library-related
 \* `src/main/java` — application sources  
 \* `src/test/java` — tests  
 \* `pom.xml` — build configuration  
-\* `src/main/java/com/riverfount/projectlibrary/ProjectLibraryApplication.java` — entry point
+\* `src/main/java/com/riverfount/JavaLibraryManager/JavaLibraryManagerApplication.java` — entry point
 
 ## Build
 
